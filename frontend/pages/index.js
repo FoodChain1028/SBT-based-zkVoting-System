@@ -20,11 +20,7 @@ export default function Home() {
 					side: 'bottom',
 				}}
 			/>
-
 			<hr className={`${styles.divider} ${styles.spacerTop}`} />
-
-			
-
 		</div>
 	);
 }
