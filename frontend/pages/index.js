@@ -2,6 +2,11 @@ import { ConnectWallet } from '@thirdweb-dev/react';
 import CodeSnippet from '../components/DemoCodeSnippet';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
+// import * as snarkjs from 'snarkjs';
+
+const circuitWasm = "";
+const finalZkey = ""
+const verficationKeyPath = ""
 
 export default function Home() {
 	return (
@@ -20,11 +25,7 @@ export default function Home() {
 					side: 'bottom',
 				}}
 			/>
-
 			<hr className={`${styles.divider} ${styles.spacerTop}`} />
-
-			
-
 		</div>
 	);
 }
