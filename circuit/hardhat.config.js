@@ -19,8 +19,8 @@ module.exports = {
     ptau: "https://hermez.s3-eu-west-1.amazonaws.com/powersOfTau28_hez_final_15.ptau",
     circuits: [
       {
-        name: "Pedersen",
-        protocol: "plonk"
+        name: "Polynomial",
+        protocol: "groth16"
       }
     ],
   },
