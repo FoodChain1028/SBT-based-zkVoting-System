@@ -1,0 +1,12 @@
+{
+  "name": "sbt-based-zkvoting-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:FoodChain1028/SBT-based-zkVoting-System.git",
+  "author": "FoodChain1028 <sh1001309@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "backend": "cd backend && yarn start",
+    "frontend-dev": "cd frontend && yarn dev"
+  }
+}

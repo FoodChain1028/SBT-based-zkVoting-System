@@ -6,11 +6,12 @@ describe("pedersen hash circuit", () => {
 
   const sampleInput = {
     in: "15",
+    publicNum: "255443"
   };
   const sanityCheck = true;
 
   before(async () => {
-    circuit = await hre.circuitTest.setup("Pedersen");
+    circuit = await hre.circuitTest.setup("Polynomial");
   });
 
   it("produces a witness with valid constraints", async () => {
@@ -27,13 +28,13 @@ describe("pedersen hash circuit", () => {
     // You might want to test some intermediate values in the pedersen hash
     assert.propertyVal(
       witness,
-      "main.out[0]",
-      "7658085551611948538652682681465234662996144502467591936160074911038686706989"
+      "main.out",
+      "16670879915787382"
     );
   });
 
   it("has the correct output", async () => {
-    const expected = { out: ["7658085551611948538652682681465234662996144502467591936160074911038686706989", "13703528276342880857486940125078519380864090981842271709928473006722237259536"] };
+    const expected = { out: "16670879915787382" };
     const witness = await circuit.calculateWitness(sampleInput, sanityCheck);
     await circuit.assertOut(witness, expected);
   });
