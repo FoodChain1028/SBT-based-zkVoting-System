@@ -11,7 +11,7 @@ const SBT = () => {
   // for blockchain interaction
   // -    zkSBT contract address: 0x5041acf51104EbC59192D1fCf705F3adECb3D2FA
   // - Verifier contract address: 0xC8df7B6e803A56EC45cbbA46385219fAdDFD7483
-  const { contract } = useContract(zkSBTAddress); 
+  const { contract } = useContract(zkSBTAddress);
   const { mutateAsync } = useContractWrite(
     contract,
     "mint",
@@ -48,23 +48,23 @@ const SBT = () => {
         <button style={{ border: "0", height: "50px", width: "120px", cursor: "pointer", borderRadius: "5px", color: "white", marginTop: "5%", background: "linear-gradient(90deg, rgba(119,9,121,0.6181066176470589) 26%, rgba(78,8,161,1) 100%)" }} onClick={() => getData(secret, publicNum)} >Generate Proof</button>
         <br />
         {dataGet &&
-        <Web3Button 
-          contractAddress={zkSBTAddress} 
-          action={() => mutateAsync({ 
-            args: [
-              data.a, data.b, data.c, publicNum
-            ]
-          }
-          )}
-          onSuccess={(result) => alert("Successfully Minted a zkSBT!!\n" + result)}
-          onError={(error) => {alert(error.message)}}
-        >
+          <Web3Button
+            contractAddress={zkSBTAddress}
+            action={() => mutateAsync({
+              args: [
+                data.a, data.b, data.c, publicNum
+              ]
+            }
+            )}
+            onSuccess={(result) => alert("Successfully Minted a zkSBT!!\n" + result)}
+            onError={(error) => { alert(error.message) }}
+          >
             Mint
-        </Web3Button>}
+          </Web3Button>}
       </div>
       {
         dataGet &&
-        <div style={{background:"rgba(255, 255, 255, 0.2)", boxShadow:"0 4px 30px rgba(0, 0, 0, 0.1)", padding:"5%", color:"white", borderRadius:"15px", marginTop:"5%"}} >
+        <div style={{ background: "rgba(255, 255, 255, 0.2)", boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)", padding: "5%", color: "white", borderRadius: "15px", marginTop: "5%" }} >
           <h1>Proof</h1>
           <p>- a: {subS(data.a[0])}, {subS(data.a[1])}</p>
           <p>- b1: {subS(data.b[0][0])}, {subS(data.b[0][1])}</p>
