@@ -46,8 +46,6 @@ export async function generateCallData(secret, publicNum) {
 // this function generate proof based on the witness and zkey
 export async function generateProof(secret, publicNum) {
     try {
-        secret = 15
-        publicNum = 121
         const inputSignal = {
             "in": secret,
             "publicNum": publicNum
