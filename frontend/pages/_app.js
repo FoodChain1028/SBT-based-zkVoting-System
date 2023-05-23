@@ -9,7 +9,7 @@ import Link from 'next/link';
 const activeChain = 'goerli';
 function MyApp({ Component, pageProps }) {
 	return (
-		<ThirdwebProvider activeChain={activeChain}>
+		<ThirdwebProvider activeChain={activeChain} >
 			<Head>
 				<title>zkSBT voting</title>
 				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
@@ -18,27 +18,24 @@ function MyApp({ Component, pageProps }) {
 					content='zksbt voting web demo'
 				/>
 			</Head>
-			<div style={{ width: "100vw", paddingTop: "0", height: "100vh" }} >
+			<div className={styles.allBack}>
 
 
-				<ul className={styles.ul} >
-					<li style={{ width: "150px"}}>
+				<ul className={styles.ul} style={{ background: "black", width: "100vw", display:"flex", justifyContent:"left", paddingLeft:"10%" }} >
+					<li style={{ width: "150px" }}>
 						<Link className={styles.text} href="/">Home</Link>
 					</li>
 					<li style={{ width: "150px" }}>
 						<Link className={styles.text} href="/getSBT">取得SBT</Link>
 					</li>
-					<li style={{ width: "150px" }}>
-						<Link className={styles.text} href="test">驗證</Link>
-					</li>
+					
 					<li style={{ width: "150px" }}>
 						<Link className={styles.text} href="voting">投票頁面</Link>
-					</li>	
+					</li>
 				</ul>
-				<div style={{width:"100%", height:"1px", background:"white", marginBottom:"5%"}} ></div>
+				{/* <div style={{width:"100%", height:"1px", background:"white", marginBottom:"5%"}} ></div> */}
 				<div className={styles.compCont}>
 					<Component {...pageProps} />
-
 				</div>
 
 			</div>

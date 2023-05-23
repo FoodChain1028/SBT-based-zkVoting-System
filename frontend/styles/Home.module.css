@@ -6,7 +6,7 @@
 	max-width: 670px;
 	width: 100%;
 	max-width: 95vw;
-	background-color: #282c34;
+	/* background-color: #282c34; */
 	overflow-x: auto;
 	font-size: 1rem;
 }
@@ -38,7 +38,7 @@
 	align-items: center;
 	flex-direction: column;
 	padding: 20px;
-	width: 100vw;
+	width: 100vw;	
 }
 
 .header {
@@ -71,4 +71,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
+}
+
+.allBack{
+	width: 100vw;
+	padding-top: 0;
+	min-height: 100vh;
+	background: rgb(2,0,36);
+	padding-bottom: 5%;
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(119,9,121,0.6181066176470589) 35%, rgba(78,8,161,1) 100%);
 }
