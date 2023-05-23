@@ -1,3 +1,5 @@
+
+import { Sepolia } from '@thirdweb-dev/chains';
 import { ThirdwebProvider } from '@thirdweb-dev/react';
 import GithubTriangle from '../components/GithubTriangle';
 import Head from 'next/head';
@@ -6,10 +8,10 @@ import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 
 // This is the chainId your dApp will work on.
-const activeChain = 'goerli';
+// const activeChain = {  };
 function MyApp({ Component, pageProps }) {
 	return (
-		<ThirdwebProvider activeChain={activeChain} >
+		<ThirdwebProvider activeChain={Sepolia} >
 			<Head>
 				<title>zkSBT voting</title>
 				<meta name='viewport' content='width=device-width, initial-scale=1.0' />

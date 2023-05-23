@@ -30,7 +30,7 @@ contract Vote {
     [0x0bfa36c40b8771f59912a8b06e3ba9cd68504e69345a0ebcb952c3c6100ec88e,0x6070f87e7650727769f301b1e264c58d77a49792dc17c13fe3cb44a9bb1f7b44, 0x780641b8ceca510c40f5f0178d126444811cc3e3edf7fa86f3656f77615dcc5c], 
   */
   constructor(bytes32[] memory _candidateNames) {
-    for (uint8 i = 0; i < _candidateNames.length; i             ++) { // 候選人名單
+    for (uint8 i = 0; i < _candidateNames.length; i++) { // 候選人名單
       candidateList[_candidateNames[i]] = true;
     } 
   }
