@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { VotingCard, VotingCon } from './style'
+import { VotingCard, VotingCon, Button } from './style'
 import { useContract, useContractWrite, useContractRead, Web3Button } from '@thirdweb-dev/react';
 import { Sepolia } from '@thirdweb-dev/chains';
 import { ThirdwebSDK } from '@thirdweb-dev/sdk';
@@ -18,6 +18,7 @@ const Voting = () => {
   const [secret, setSecret] = useState();
   const [soulAddress, setSoulAddr] = useState("");
   const [input, setInput] = useState([]);
+  const [voteVis, setVoteVis] = useState(false)
 
 
   const sdk = new ThirdwebSDK(Sepolia);
@@ -56,7 +57,9 @@ const Voting = () => {
       });
       alert("Successfully Voted!")
       console.info("contract call successs", data);
+      setVoteVis(false)
     } catch (err) {
+      alert('SBT不存在或是已投票過。')
       console.error("contract call failure", err);
     }
 
@@ -70,9 +73,7 @@ const Voting = () => {
       <div style={{ width: "80%", backgroun: "white", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "5%" }}>
         <h1>{name}</h1>
         <div style={{ display: "flex", flexDirection: "column", height: "180px", width: "150px", background: "gray", marginBottom: "10%", whiteSpace: "pre", justifyContent: "center", alignItems: "center" }}>
-          {/* |\---/|<br />
-             | o_o | <br /> {""}
-            \_^_/< */}
+
           <p> /\_/\ <br />
             ( o.o )<br />
             {" > ^ <"}</p>
@@ -94,37 +95,49 @@ const Voting = () => {
         Your Choice: {selection}
       </p>
       <input
+        style={{ margin: "1%" }}
         onChange={(e) => setSoulAddr(e.target.value)}
         placeholder='your soul address'
       />
-      <br />
       <input
+        style={{ margin: "1%" }}
         onChange={(e) => setSecret(e.target.value)}
         placeholder='your secret'
       />
-      <br />
-      <button onClick={
+      <Button onClick={
         async () => {
-          await generateInput(soulAddress)
+          if (soulAddress !== "" && secret !== "") {
+            await generateInput(soulAddress)
+            setVoteVis(true)
+          } else {
+            alert('請輸入資料！')
+          }
+
         }
       }>
         Generate Input
-      </button>
-      <br />
-      <button onClick={
-        () => {
-          vote()
-            .then((result) => {
-              console.log(result);
-            })
-            .catch((e) => {
-              console.log(e);
-            })
+      </Button>
+      {
+        voteVis && <Button onClick={
+          () => {
+            if (selection === "") {
+              alert("尚未選擇候選人。")
+            } else {
+              vote()
+                .then((result) => {
+                  console.log(result);
+                })
+                .catch((e) => {
+                  console.log(e);
+                })
+            }
+          }
         }
+        >
+          Vote
+        </Button>
       }
-      >
-        Vote
-      </button>
+
     </VotingCon>
   )
 }

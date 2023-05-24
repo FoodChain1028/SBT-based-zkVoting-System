@@ -23,3 +23,21 @@ export const VotingCard = styled.div`
     color: black;
 `
 
+export const Button = styled.div`
+    cursor: pointer;
+    min-width: 100px;
+    min-height: 60px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: .2s;
+    border-radius: 5px;
+    margin: 10px;
+
+    &:hover{
+        transform: scale(1.1);
+    }
+`
